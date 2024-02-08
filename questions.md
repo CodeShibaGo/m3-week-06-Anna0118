@@ -1,8 +1,22 @@
 # Questions
 
 ## Q: 使用 `virtualenv` 建立虛擬環境 #116
+1. 在Terminal安裝 virtualenv 套件
+```commandline
+ pip3 install virtualenv
+```
+2. 創建虛擬環境
+```commandline
+ virtualenv venv
+```
+3. 啟動虛擬環境 (for macOS or Linux)
+```commandline
+source venv/bin/activate
+```
 
 ## Q: python-dotenv 如何使用？ #119
+
+
 
 ## Q: 如何使用 Flask-SQLAlchemy 連接上 MySQL？ #123
 
