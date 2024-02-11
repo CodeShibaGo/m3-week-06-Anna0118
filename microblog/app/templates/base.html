@@ -1,0 +1,17 @@
+<!--app/templates/base.html: 包含導航欄的基礎模板-->
+
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - 微型部落格 </title>
+      {% else %}
+      <title> 歡迎來到微型部落格 </title>
+      {% endif %}
+    </head>
+    <body>
+        <div> 微型部落格： <a href="/"> 首頁 </a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
