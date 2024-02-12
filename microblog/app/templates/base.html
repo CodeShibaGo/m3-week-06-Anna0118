@@ -4,13 +4,16 @@
 <html>
     <head>
       {% if title %}
-      <title>{{ title }} - 微型部落格 </title>
+      <title>{{ title }} - Microblog </title>
       {% else %}
-      <title> 歡迎來到微型部落格 </title>
+      <title> Welcome to Microblog </title>
       {% endif %}
     </head>
     <body>
-        <div> 微型部落格： <a href="/"> 首頁 </a></div>
+        <div> Microblog:
+            <a href="/index"> Home </a>
+            <a href="/login"> Login </a>
+        </div>
         <hr>
         {% block content %}{% endblock %}
     </body>

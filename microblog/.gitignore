@@ -3,3 +3,7 @@
 
 # 忽略虛擬環境
 venv
+
+# Packages
+__pycache__
+
