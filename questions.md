@@ -40,9 +40,65 @@ SECRET_KEY=example_secret_key
 - 兩者結合使用，實現配置與運行環境設定的有效隔離與管理。
 
 ## Q: 如何使用 Flask-SQLAlchemy 連接上 MySQL？ #123
+- 先安裝套件
+  ```python
+  pip install flask-sqlalchemy pymysql
+  ```
+- 在python檔案中匯入套件
+  ```python
+    from flask import Flask
+    from flask_sqlalchemy import SQLAlchemy
+
+    app = Flask(__name__)
+    # 更換下面的用户名、密碼、主機和資料庫名稱
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password@localhost/mydatabase'
+    # 代表資料庫的 db 物件
+    db = SQLAlchemy(app)
+
+  ```
+- 測試資料庫是否連接成功。在終端機出入 `flask shell`，之後依序輸入以下
+  ```python
+    # 創建新用戶
+    new_user = User(username='testuser')
+    db.session.add(new_user)
+    db.session.commit()
+    
+    # 查詢用户
+    user = User.query.filter_by(username='testuser').first()
+    print(user)
+  ```
 
 ## Q: Flask-Migrate 如何使用？ #124
-
+- 先安裝Flask-Migrate套件
+  ```python
+  pip install Flask-Migrate
+  ```
+- 新增資料庫模型， (app/models.py)
+  ```python
+  from app import db
+  # 範例
+  class Users(db.Model):    
+    _id = db.Column('id', db.Integer, primary_key=True)   
+    name = db.Column('name', db.String(100))    
+    email = db.Column(db.String(100)) 
+   
+    def __init__(self, name, email):  
+        self.name =name    
+        self.email = email
+  ```
+- 在python檔案中匯入
+  ```python
+  from flask_migrate import Migrate
+  Migrate(app,db)
+  ```
+- 使用command line 指令執行Flask Migrate
+  ```python
+  # 會出現一個migrations資料夾
+  flask db init
+  flask db migrate -m "說明文字"
+  # 將migrations檔案更新至資料庫中
+  flask db upgrade
+  ```
 ## Q: 如何使用 SQLAlchemy 下 Raw SQL？ #125
 
 ## Q: 如何用土炮的方式建立 Table？ #126
