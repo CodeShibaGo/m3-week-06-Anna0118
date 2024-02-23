@@ -100,7 +100,11 @@ SECRET_KEY=example_secret_key
   flask db upgrade
   ```
 ## Q: 如何使用 SQLAlchemy 下 Raw SQL？ #125
+  - 在 SQLAlchemy 中，透過```connection.execute()```，例如：connection.execute(text("SELECT * FROM my_table"))
+  - 執行後需要再使用 ```connection.commit()``` 來提交資料，確保更改和保存到資料庫中。
 
 ## Q: 如何用土炮的方式建立 Table？ #126
+  - 在 SQLAlchemy 中，可以直接透過 CREATE TABLE 的 SQL 語句來達成
+  - 例如：connection.execute(text("CREATE TABLE table_name (id INTEGER PRIMARY KEY, name VARCHAR(100))"))
 
 ## Q: 什麼是密碼雜湊？如何使用 Python 實現？ #129

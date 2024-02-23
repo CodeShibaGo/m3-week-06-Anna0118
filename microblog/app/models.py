@@ -2,8 +2,12 @@
 from datetime import datetime, timezone
 # import sqlalchemy as sa # 資料庫函示和類別，例如型態和查詢建構
 # import sqlalchemy.orm as so # 使用模型
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 from app import db
-class User(db.Model):
+from app import login
+
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # id: so.Mapped[int] = so.mapped_column(primary_key=True)
 
@@ -12,11 +16,8 @@ class User(db.Model):
     #                                             unique=True)
 
     email = db.Column(db.String(120), index=True, unique=True)
-    # email: so.Mapped[str] = so.mapped_column(sa.String(120), index=True,
-    #                                          unique=True)
 
-    password_hash = db.Column(db.String(128))
-    # password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
+    password_hash = db.Column(db.String(256), nullable=True)
 
     # 一對多關係
     # `author` 屬性是透過 SQLAlchemy 的 ORM 功能，在 Python 代碼層面定義的。
@@ -29,14 +30,22 @@ class User(db.Model):
     #     back_populates='author')
 
     # 用來初始化Class類別
-    def __init__(self, username, email, password_hash):
+    def __init__(self, username, email):
         self.username = username
         self.email = email
-        self.password_hash = password_hash
 
     # 使用print() 顯示我們希望Class出現的的資料
     def __repr__(self):
-        return f'username {self.username} , email {self.email},password_hash {self.password_hash}'
+        return f'username {self.username} , email {self.email}'
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+@login.user_loader
+def load_user(id):
+    return db.session.get(User, int(id))
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
