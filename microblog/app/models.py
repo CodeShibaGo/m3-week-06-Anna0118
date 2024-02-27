@@ -1,5 +1,6 @@
 # from typing import Optional
 from datetime import datetime, timezone
+from hashlib import md5
 # import sqlalchemy as sa # 資料庫函示和類別，例如型態和查詢建構
 # import sqlalchemy.orm as so # 使用模型
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -18,6 +19,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
 
     password_hash = db.Column(db.String(256), nullable=True)
+    about_me = db.Column(db.String(140))
+    last_seen = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
     # 一對多關係
     # `author` 屬性是透過 SQLAlchemy 的 ORM 功能，在 Python 代碼層面定義的。
@@ -42,6 +45,9 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+    def avatar(self, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
 
 @login.user_loader
 def load_user(id):
