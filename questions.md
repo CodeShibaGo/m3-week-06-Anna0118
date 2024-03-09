@@ -107,4 +107,18 @@ SECRET_KEY=example_secret_key
   - 在 SQLAlchemy 中，可以直接透過 CREATE TABLE 的 SQL 語句來達成
   - 例如：connection.execute(text("CREATE TABLE table_name (id INTEGER PRIMARY KEY, name VARCHAR(100))"))
 
+## Q: 比較透過ORM和raw SQL的優缺點
+ -  ORＭ 適合於快速開發和需要跨資料庫兼容性的項目，因為它提供了一個高層次的抽象來管理資料庫交互
+     - 優點: 易維護, 減少SQL injection, 資料庫抽象
+     - 缺點：對於較複雜查詢性能度低, 需熟悉抽象概念
+ -  raw SQL 提供最大的靈活性和性能優化的可能性，適合於需要進行細粒度控制和優化的場景
+     - 優點：易維護, 減少SQL injection, 
+     - 缺點: 可維護性差, 增加減少SQL injection,  依賴特定資料庫
+
 ## Q: 什麼是密碼雜湊？如何使用 Python 實現？ #129
+  - 將密碼轉換成另一個格式。基於安全性的理由，要透過某種方式將密碼加密後才存入資料庫中。一般會使用Hash function（雜湊函數，又稱雜湊演算法）來處理這種問題。
+  - 由雜湊演算法所計算出來的雜湊值（Hash Value）具有不可逆的性質，也就是說無法逆向演算回原本的數值，因此可有效的保護密碼。 
+    - 可以使用 Werkzeug 進行密碼雜湊，也可使用Bcrypt。這兩種Hash 函式庫都可以在Flask中選用。 
+    - `generate_password_hash(password, method='pbkdf2:sha256', salt_length=8)` 函數用於產生密碼的散列值。它接受用戶的明文密碼作為輸入，然後使用指定的散列算法（預設為 pbkdf2:sha256）和鹽值長度（預設為8位）來產生一個密碼的散列值（Hash）。
+    - `check_password_hash(hash, password)` 函數用於驗證明文密碼與散列值是否匹配。它接受兩個參數：存儲的密碼散列值和用戶輸入的明文密碼。
+  - 藉由 generate_password_hash 提供了一種安全的方法來存儲用戶密碼的散列值，而 check_password_hash 則用於驗證用戶登錄時提供的密碼是否正確。這種方法提高了應用程序的安全性，防止密碼洩露的風險。

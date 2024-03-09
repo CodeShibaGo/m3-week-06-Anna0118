@@ -89,6 +89,7 @@ def user(username):
 @login_required
 def edit_profile():
     # form = EditProfileForm()
+    # app.logger.error('Editing-error')
     form = EditProfileForm(current_user.username)
     if form.validate_on_submit():
         current_user.username = form.username.data
