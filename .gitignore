@@ -1,9 +1,9 @@
 # 忽略 .env 檔案
-microblog/.env
+.env
 
 # 忽略虛擬環境
-venv
+.idea/
+venv/
 
 # Packages
-＿pycache＿
-
+__pycache__/

@@ -102,3 +102,9 @@ def edit_profile():
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
+
+@app.route('/trigger-error')
+def trigger_error():
+    # 製造一個假的錯誤，測試mail發送error messages
+    x = 1 / 0
+    return 'Error triggered'
