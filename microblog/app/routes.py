@@ -39,8 +39,8 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
-    #  由flask_wtf提供的method，可以直接確認POST與欄位驗證以及最重要的CSRF
-    #  flask_wtf類中提供判斷是否表單提交過來的method，不需要自行利用request.method來做判斷
+    #  在flask_wtf中，使用Form創建表單時，flask-WTF 會自動為每個表單生成一個 CSRF token，並在渲染該表單的頁面上包含該 token
+    #  所以，當用戶提交表單時，Flask-WTF 會檢查 CSRF token 是否有效，確保該請求是來自合法的用戶而不是惡意的攻擊者。
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         # 登入後會在網頁上呈現 ex, Login requested for user 123, remember_me=False
@@ -49,7 +49,7 @@ def login():
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
-        # 如果next_page没有值，代表没有指定要重定向到的特定頁面。
+        # 如果next_page没有值，代表没有指定要重定向的特定頁面。
         if not next_page or urlsplit(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(url_for('index'))

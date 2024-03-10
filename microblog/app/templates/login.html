@@ -6,7 +6,7 @@
     <h1>Sign In</h1>
     <form action="" method="POST" novalidate>
         {{ form.hidden_tag() }}
-<!--        form是由後端拋到前端來的一個參數，username是我們在Form中所設置的屬性名稱，而label是該屬性的第一個參數。-->
+<!--        form是使用 wtform 產生的一個物件，被傳傳遞到前端-->
         <p>
             {{ form.username.label }}<br>
             {{ form.username(size=32) }}<br>

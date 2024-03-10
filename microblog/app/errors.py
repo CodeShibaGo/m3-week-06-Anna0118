@@ -3,6 +3,8 @@ from app import app, db
 
 @app.errorhandler(404)
 def not_found_error(error):
+    # app.logger.error('404 Error: %s', error)
+    db.session.rollback()
     return render_template('404.html'), 404
 
 @app.errorhandler(500)
