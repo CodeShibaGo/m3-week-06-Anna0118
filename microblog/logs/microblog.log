@@ -1,0 +1,75 @@
+2024-03-10 14:29:21,184 ERROR: Exception on /trigger-error [GET] [in /Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py:828]
+Traceback (most recent call last):
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/app/routes.py", line 109, in trigger_error
+    x = 1 / 0
+        ~~^~~
+ZeroDivisionError: division by zero
+2024-03-10 14:32:10,152 ERROR: Exception on /trigger-error [GET] [in /Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py:828]
+Traceback (most recent call last):
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/app/routes.py", line 109, in trigger_error
+    x = 1 / 0
+        ~~^~~
+ZeroDivisionError: division by zero
+2024-03-10 15:20:16,320 ERROR: Exception on /trigger-error [GET] [in /Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py:828]
+Traceback (most recent call last):
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/app/routes.py", line 109, in trigger_error
+    x = 1 / 0
+        ~~^~~
+ZeroDivisionError: division by zero
+2024-03-10 15:35:33,155 ERROR: Exception on /trigger-error [GET] [in /Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py:828]
+Traceback (most recent call last):
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/annachu/mento3/m3-week-06-Anna0118/microblog/app/routes.py", line 109, in trigger_error
+    x = 1 / 0
+        ~~^~~
+ZeroDivisionError: division by zero
+2024-03-10 15:35:39,932 ERROR: 404 Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in /Users/annachu/mento3/m3-week-06-Anna0118/microblog/app/errors.py:6]
+2024-03-10 15:38:00,274 ERROR: 404 Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in /Users/annachu/mento3/m3-week-06-Anna0118/microblog/app/errors.py:6]
+2024-03-10 15:40:05,792 ERROR: 404 Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in /Users/annachu/mento3/m3-week-06-Anna0118/microblog/app/errors.py:6]

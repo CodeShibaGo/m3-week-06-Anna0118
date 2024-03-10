@@ -1,0 +1,9 @@
+# 忽略 .env 檔案
+.env
+
+# 忽略虛擬環境
+.idea/
+venv/
+
+# Packages
+__pycache__/
